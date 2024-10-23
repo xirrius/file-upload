@@ -5,9 +5,9 @@
 // file store ki thi use delete, link use karenge
 // cloudinary
 
+require('dotenv').config()
 const express = require("express");
 const cors = require("cors");
-const pool = require("./db");
 const upload = require("./middleware/multer");
 const uploadOnCloudinary = require("./utils/cloudinary");
 
@@ -53,5 +53,5 @@ app.post(
 );
 
 app.listen(5000, () => {
-  console.log(`Server listening on port 5000.`);
+  console.log(`Server listening on http://localhost:5000.`);
 });
