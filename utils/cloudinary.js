@@ -9,15 +9,15 @@ cloudinary.config({
 
 const uploadOnCloudinary = async (localFilePath) => {
   try {
-    if (!localFilePath) {
+    if (!localFilePath) { // no path supplied
       console.log(`File does not exist.`);
       return null
     };
-    const response = await cloudinary.uploader.upload(localFilePath, {
-      resource_type: "auto",
-    });
+    const response = await cloudinary.uploader.upload(localFilePath, { // cloudinary ke uploader se hm file ko upload krte h, by providing the file path in our server
+      resource_type: "auto", // type of file - .jpg, .png
+    }); // this returns the url of the uploaded file
     console.log("file is uploaded on cloudinary.", response.url);
-    return response.url;
+    return response.url; // uploadOnCloudinary yhi url return kr dega
   } catch (error) {
     console.error(error);
   }
